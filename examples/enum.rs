@@ -1,9 +1,23 @@
+#![allow(dead_code)]
+
 enum WebEvent {
   PageLoad,
   PageUnload,
   KeyPress(char),
   Paste(String),
   Click { x: i64, y: i64 },
+}
+
+enum Number {
+  Zero,
+  One,
+  Two,
+}
+
+enum Color {
+  Red = 0xff0000,
+  Green = 0x00ff00,
+  Blue = 0x0000ff,
 }
 
 fn inspect(event: WebEvent) {
@@ -30,4 +44,11 @@ fn main() {
   inspect(clicked);
   inspect(loaded);
   inspect(unloaded);
+
+  println!("zero is {}", Number::Zero as i32);
+  println!("one is {}", Number::One as i32);
+  println!("two is {}", Number::Two as i64);
+
+  println!("roses are #{:06x}", Color::Red as i32);
+  println!("viorets are #{:06x}", Color::Blue as i32);
 }
