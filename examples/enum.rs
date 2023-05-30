@@ -20,6 +20,23 @@ enum Color {
   Blue = 0x0000ff,
 }
 
+enum VeryVerboseEnumOfThingsToDoWithNumbers {
+  Add,
+  Subtract,
+}
+
+// Create a type alias
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+
+impl VeryVerboseEnumOfThingsToDoWithNumbers {
+  fn run(&self, x: i32, y: i32) -> i32 {
+    match self {
+      Self::Add => x + y,
+      Self::Subtract => x - y,
+    }
+  }
+}
+
 fn inspect(event: WebEvent) {
   match event {
     WebEvent::PageLoad => println!("page loaded"),
@@ -51,4 +68,7 @@ fn main() {
 
   println!("roses are #{:06x}", Color::Red as i32);
   println!("viorets are #{:06x}", Color::Blue as i32);
+
+  let x = Operations::Add;
+  println!("x is {}", x.run(1, 2));
 }
