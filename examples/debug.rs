@@ -1,15 +1,15 @@
 #[derive(Debug)]
 struct Person<'a> {
-  name: &'a str,
-  age: u8,
+    name: &'a str,
+    age: u8,
 }
 
 fn main() {
-  let name = "Peter";
-  let age = 27;
-  let peter = Person { name, age };
+    let name = "Peter";
+    let age = 27;
+    let peter = Person { name, age };
 
-  println!("{:#?}", peter);
-  println!("name: {}", peter.name);
-  println!("age: {}", peter.age);
+    println!("{:#?}", peter);
+    println!("name: {}", peter.name);
+    println!("age: {}", peter.age);
 }
